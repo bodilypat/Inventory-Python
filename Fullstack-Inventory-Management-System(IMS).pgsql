@@ -404,59 +404,95 @@ Fullstack-Medical-Inventory-Management-System(IMS)/
 │                            
 ├── backend(Python) FastAPI(API Routes-> Validation / Schema ->Service Layer->Repository Layer->SQLAlchemy ORM)-> PostgreSQL -> Response -> React.js UI
 │   ├── app/
+│   │   ├── __init__.py 
+│   │   ├── main.py
+│   │   │
 │   │   ├── core/
+│   │   │   ├── __init__.py
 │   │   │   ├── config.py
 │   │   │   ├── database.py    
 │   │   │   └── security.py             
 │   │   │
-│   │   ├── api/                              
+│   │   ├── api/   
+│   │   │   ├── __init__.py
+│   │   │   ├── deps.py                           
 │   │   │   └── routes/                  
+│   │   │       ├── __init__.py 
 │   │   │       ├── auth.py
-│   │   │       ├── dashboard/
+│   │   │       ├── users.py 
 │   │   │       ├── products.py
 │   │   │       ├── categories.py
 │   │   │       ├── suppliers.py 
-│   │   │       ├── customers.py
+│   │   │       ├── inventory.py+
 │   │   │       ├── purchases.py
 │   │   │       ├── sales.py 
-│   │   │       ├── inventory.py
+│   │   │       ├── batches.py 
+│   │   │       ├── expiry.py
+│   │   │       ├── dashboard.py 
 │   │   │       └── reports.py
 │   │   │
 │   │   ├── schemas/                             
-│   │   │   ├── auth.py 
+│   │   │   ├── __init__.py
+│   │   │   ├── user.py 
 │   │   │   ├── product.py 
 │   │   │   ├── category.py 
 │   │   │   ├── supplier.py 
-│   │   │   ├── customer.py  
+│   │   │   ├── customer.py 
+│   │   │   ├── batch.py  
+│   │   │   ├── inventory.py 
 │   │   │   ├── purchase.py 
-│   │   │   └── sale.py                         
+│   │   │   ├── purchase_item.py 
+│   │   │   ├── sale.py 
+│   │   │   └── sale_item.py                          
 │   │   │
-│   │   ├── services/                             
+│   │   ├── services/          
+│   │   │   ├── __init__.py                    
 │   │   │   ├── auth_service.py
+│   │   │   ├── user_service.py
 │   │   │   ├── product_service.py 
+│   │   │   ├── category_service.py
+│   │   │   ├── supplier_service.py 
 │   │   │   ├── inventory_service.py 
 │   │   │   ├── purchase_service.py 
 │   │   │   ├── sale_service.py 
-│   │   │   ├── purchase_service.py 
-│   │   │   ├── sale_service.py 
-│   │   │   ├── inventory_service.py 
+│   │   │   ├── batch_service.py 
+│   │   │   ├── expiry_service.py 
 │   │   │   └── report_service.py
 │   │   │
 │   │   ├── repositories/                             
-│   │   │   ├── product_repository.py 
-│   │   │   ├── inventory_repository.py 
-│   │   │   ├── purchase_repository.py
-│   │   │   ├── sales_repository.py 
+│   │   │   ├── __init__.py 
+│   │   │   ├── user_repository.py 
+│   │   │   ├── product_repository.py
+│   │   │   ├── category_repository.py 
+│   │   │   ├── supplier_repository.py 
+│   │   │   ├── inventory_repository.py
+│   │   │   ├── purchase_repository.py 
+│   │   │   ├── sale_repository.py 
+│   │   │   ├── batch_repository.py
 │   │   │   └── report_repository.py
 │   │   │
 │   │   └── models/                                 
+│   │       ├── __init__.py 
+│   │       ├── user.py
 │   │       ├── product.py 
 │   │       ├── category.py 
 │   │       ├── supplier.py 
-│   │       ├── customer.py 
+│   │       ├── customer.py
+│   │       ├── batch.py 
+│   │       ├── inventory.py 
 │   │       ├── purchase.py 
-│   │       └── sale.py
+│   │       ├── purchase_item.py
+│   │       ├── sale.py 
+│   │       └── sale_item.py
 │   │    
 │   ├── tests/
-│   ├── requirements.txt
-│   └── .env
+│   │   ├── unit/
+│   │   ├── integration/
+│   │   └── api/
+│   ├── migrations/
+│   │   └── ...
+│   ├── requirements.txt 
+│   ├── .env 
+│   ├── .env.example 
+│   └── README.md 
+└── 
