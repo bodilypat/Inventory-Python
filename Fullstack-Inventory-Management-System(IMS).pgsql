@@ -1,4 +1,4 @@
-Fullstack-Medical-Inventory-Management-System(IMS)/
+Fullstack-Inventory-Management-System(IMS)/
 ├── frontend/ (React.js • HTML • CSS) components -> pages -> hooks -> services -> routes -> utils -> App.jsx
 │   │
 │   ├── public/
@@ -23,15 +23,21 @@ Fullstack-Medical-Inventory-Management-System(IMS)/
 │   │   │   │   ├── Textarea.jsx 
 │   │   │   │   ├── Checkbox.jsx
 │   │   │   │   ├── Radio.jsx
+│   │   │   │   ├── Modal.jsx 
+│   │   │   │   ├── Table.jsx
+│   │   │   │   ├── Pagination.jsx 
+│   │   │   │   ├── Loading.jsx 
+│   │   │   │   ├── ErrorMessage.jsx  
+│   │   │   │   ├── SuccessMessage.jsx
+│   │   │   │   ├── Spinner.jsx 
+│   │   │   │   ├── Alert.jsx 
 │   │   │   │   └── index.js     
-│   │   │   ├── layout/  
-│   │   │   │   ├── Navbar.jsx
-│   │   │   │   ├── Sidebar.jsx
-│   │   │   │   ├── Footer.jsx
-│   │   │   │   └── Layout.css
-│   │   │   └── ...
-│   │   │  		├── 
-│   │   │       └── 
+│   │   │   └── layout/  
+│   │   │       ├── Navbar.jsx
+│   │   │       ├── Sidebar.jsx
+│   │   │       ├── Footer.jsx
+│   │   │       ├── Breadcrumb.jsx
+│   │   │       └── Layout.css
 │   │   │  
 │   │   ├── features/                                       
 │   │   │   ├── auth/ 
@@ -42,8 +48,7 @@ Fullstack-Medical-Inventory-Management-System(IMS)/
 │   │   │  	│	│   ├── ResetPasswordForm.jsx
 │   │   │  	│	│   ├── ChangePasswordForm.jsx
 │   │   │  	│	│   ├── PasswordInput.jsx 
-│   │   │  	│	│   ├── AuthCard.jsx
-│   │   │   │   │   └── index.js
+│   │   │   │   │   └── AuthCard.jsx
 │   │   │  	│	├── pages/                               # Route-level pages 
 │   │   │  	│	│   ├── Login.jsx
 │   │   │  	│	│   ├── Register.jsx
@@ -56,9 +61,7 @@ Fullstack-Medical-Inventory-Management-System(IMS)/
 │   │   │  	│	│   ├── useLogin.js
 │   │   │  	│	│   ├── useRegister.js
 │   │   │  	│	│   ├── useLogout.js
-│   │   │  	│	│   ├── useCurrentUser.js
-│   │   │  	│	│   ├── useRefreshToken.js
-│   │   │   │   │   └── index.js
+│   │   │   │   │   └── useCurrentUser.js
 │   │   │  	│	├── services/                            # API calls (login, logout, refresh token, profile)
 │   │   │   │   │   └── authApi.js
 │   │   │  	│	├── context/                             # Global authentication state
@@ -92,10 +95,10 @@ Fullstack-Medical-Inventory-Management-System(IMS)/
 │   │   │  	│	├── components/
 │   │   │  	│	│   ├── ProductForm.jsx
 │   │   │  	│	│   ├── ProductTable.jsx
-│   │   │  	│	│   ├── ProductCard.jsx
 │   │   │  	│	│   ├── ProductSearch.jsx
 │   │   │  	│	│   ├── ProductFilter.jsx 
-│   │   │  	│	│   ├── ProductActions.jsx 
+│   │   │  	│	│   ├── ProductActions.jsx
+│   │   │  	│	│   ├── ProductCard.jsx 
 │   │   │  	│	│   ├── ProductStatusBadge.jsx 
 │   │   │  	│	│   ├── ProductStockBadge.jsx
 │   │   │  	│	│   ├── ProductPagination.jsx
@@ -350,7 +353,6 @@ Fullstack-Medical-Inventory-Management-System(IMS)/
 │   │   │
 │   │   ├── hooks/                                       
 │   │   │   ├── useFetch.js                              # Generic API request handing (loading, error, data)
-│   │   │   ├── useDashboard.js                          # Dashboard statistics and summaries
 │   │   │   ├── usePagination.js                         # Pagination Logic reusable across tables
 │   │   │   ├── useDebounce.js                           # Debounce values for search inputs
 │   │   │   ├── useLocalStorage.js                       # Persist datain local state
@@ -377,7 +379,7 @@ Fullstack-Medical-Inventory-Management-System(IMS)/
 │   │   │   ├── formatter.js                             # Formatting text, numbers, IDs 
 │   │   │   ├── date.js                                  # Date and time formatting utilities
 │   │   │   ├── currency.js                              # Currency calculations and formatting 
-│   │   │   ├── storage.js                               # LocalStorage and SessionStorage helpers                           # Role and permission helper functions
+│   │   │   ├── storage.js                               # LocalStorage and SessionStorage helpers       
 │   │   │   └── index.js                                 # Re-export utitity function
 │   │   │     
 │   │   ├── constants/                                         
