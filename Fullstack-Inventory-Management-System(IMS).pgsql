@@ -103,7 +103,7 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │  	│	│   ├── ProductStockBadge.jsx
 │   │   │  	│	│   ├── ProductPagination.jsx
 │   │   │  	│	│   ├── ProductEmptyState.jsx
-│   │   │   │   │   └── ProductDeleteModel.jsx
+│   │   │   │   │   └── ProductDeleteModal.jsx
 │   │   │  	│	├── hooks/
 │   │   │  	│	│   ├── useProducts.js 
 │   │   │  	│	│   ├── useProduct.js 
@@ -122,6 +122,34 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │  	│	│   ├── productFormatter.js 
 │   │   │   │   │   └── productConstants.js
 │   │   │   │   └── index.js
+│   │   │   ├── categories/ 
+│   │   │   │   ├── pages/
+│   │   │  	│	│   ├── Categories.jsx
+│   │   │  	│	│   ├── AddCategory.jsx
+│   │   │  	│	│   ├── EditCategory.jsx
+│   │   │   │   │   └── CategoryDetailsPage.jsx
+│   │   │  	│	├── components/
+│   │   │  	│	│   ├── CategoryForm.jsx
+│   │   │  	│	│   ├── CategoryTable.jsx
+│   │   │  	│	│   ├── CategoryDetails.jsx
+│   │   │  	│	│   ├── CategoryFilters.jsx 
+│   │   │  	│	│   ├── CategoryStatus.jsx
+│   │   │   │   │   └── CategorySummary.jsx
+│   │   │  	│	├── hooks/
+│   │   │   │   │   └── categories.js
+│   │   │  	│	├── services/
+│   │   │   │   │   └── categoriesApi.js
+│   │   │  	│	├── store/
+│   │   │   │   │   └── categoriesSlice.js
+│   │   │  	│	├── validation/
+│   │   │   │   │   └── categoriesSchema.js
+│   │   │  	│	├── selectors/
+│   │   │   │   │   └── categoriesSelectors.js
+│   │   │  	│	├── utils/
+│   │   │   │   │   └── categoryUtils.js
+│   │   │  	│	├── constants/
+│   │   │   │   │   └── categoryConstants.js
+│   │   │   │   └── index.js
 │   │   │   ├── inventory/
 │   │   │   │   ├── pages/
 │   │   │  	│	│   ├── Inventory.jsx 
@@ -134,7 +162,7 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │  	│	│   ├── InventoryFilters.jsx 
 │   │   │  	│	│   ├── InventoryStats.jsx 
 │   │   │  	│	│   ├── StockAdjustment.jsx 
-│   │   │  	│	│   ├── LowSTockAlert.jsx   
+│   │   │  	│	│   ├── LowStockAlert.jsx   
 │   │   │   │   │   └── StockStatus.jsx 
 │   │   │  	│	├── hooks/
 │   │   │   │   │   └── useInventory.js
@@ -147,9 +175,9 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │   ├── purchases/
 │   │   │   │   ├── pages/
 │   │   │  	│	│   ├── Purchases.jsx                            # Purchase order listing page
-│   │   │  	│	│   ├── AddPruchase.jsx                          # Create ne purchase 
+│   │   │  	│	│   ├── AddPurchase.jsx                          # Create ne purchase 
 │   │   │  	│	│   ├── EditPurchase.jsx                         # Edit an existing purchase 
-│   │   │  	│	│   ├── PurchasesDetailsPage.jsx                 # Full purchase order details 
+│   │   │  	│	│   ├── PurchaseDetails.jsx                      # Full purchase order details 
 │   │   │   │   │   └── ReceivePurchasePage.jsx                  # Receive ordered products  
 │   │   │  	│	├── components/                                
 │   │   │  	│	│   ├── PurchaseForm.jsx                         # Reusable create/edit from 
@@ -182,9 +210,20 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │  	│	│   ├── SalesStatus.jsx 
 │   │   │  	│	│   ├── SaleItems.jsx 
 │   │   │  	│	│   ├── ProcessReturn.jsx 
-│   │   │   │   │   └── SalesSummary.jsx 
+│   │   │  	│	│   ├── SalesSummary.jsx
+│   │   │  	│	│   ├── SaleCustomer.jsx
+│   │   │  	│	│   ├── SalePayment.jsx
+│   │   │  	│	│   ├── SaleSearch.jsx
+│   │   │  	│	│   ├── SaleActions.jsx
+│   │   │  	│	│   ├── SaleEmptyState.jsx
+│   │   │  	│	│   ├── SaleDeleteModal.jsx
+│   │   │   │   │   └── SalePrint.jsx 
 │   │   │  	│	├── hooks/
-│   │   │   │   │   └── useSales.js
+│   │   │  	│	│   ├── useSales.js 
+│   │   │  	│	│   ├── useSale.js 
+│   │   │  	│	│   ├── useSaleFilters.js 
+│   │   │  	│	│   ├── useSaleItems.js 
+│   │   │   │   │   └── useSaleReturn.js 
 │   │   │  	│	├── services/
 │   │   │   │   │   └── salesApi.js
 │   │   │  	│	├── store/
@@ -413,7 +452,9 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │   ├── __init__.py
 │   │   │   ├── config.py
 │   │   │   ├── database.py    
-│   │   │   └── security.py             
+│   │   │   ├── security.py 
+│   │   │   ├── exceptions.py 
+│   │   │   └── logging.py           
 │   │   │
 │   │   ├── api/   
 │   │   │   ├── __init__.py
@@ -425,7 +466,11 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │       ├── products.py
 │   │   │       ├── categories.py
 │   │   │       ├── suppliers.py 
-│   │   │       ├── inventory.py+
+│   │   │       ├── customers.py 
+│   │   │       ├── warehouses.py
+│   │   │       ├── inventory.py
+│   │   │       ├── suppliers.py 
+│   │   │       ├── stock_movements.py 
 │   │   │       ├── purchases.py
 │   │   │       ├── sales.py 
 │   │   │       ├── batches.py 
@@ -435,13 +480,16 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │
 │   │   ├── schemas/                             
 │   │   │   ├── __init__.py
+│   │   │   ├── common.py 
 │   │   │   ├── user.py 
 │   │   │   ├── product.py 
 │   │   │   ├── category.py 
 │   │   │   ├── supplier.py 
 │   │   │   ├── customer.py 
+│   │   │   ├── estrhouse.py 
 │   │   │   ├── batch.py  
 │   │   │   ├── inventory.py 
+│   │   │   ├── stock_movement.py
 │   │   │   ├── purchase.py 
 │   │   │   ├── purchase_item.py 
 │   │   │   ├── sale.py 
@@ -454,11 +502,15 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │   ├── product_service.py 
 │   │   │   ├── category_service.py
 │   │   │   ├── supplier_service.py 
+│   │   │   ├── customer_service.py 
+│   │   │   ├── warehouse_service.py 
 │   │   │   ├── inventory_service.py 
+│   │   │   ├── stock_movement_service.py 
 │   │   │   ├── purchase_service.py 
 │   │   │   ├── sale_service.py 
 │   │   │   ├── batch_service.py 
 │   │   │   ├── expiry_service.py 
+│   │   │   ├── dashboard_service.py 
 │   │   │   └── report_service.py
 │   │   │
 │   │   ├── repositories/                             
@@ -466,26 +518,38 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │   ├── user_repository.py 
 │   │   │   ├── product_repository.py
 │   │   │   ├── category_repository.py 
-│   │   │   ├── supplier_repository.py 
+│   │   │   ├── supplier_repository.py
+│   │   │   ├── customer_repository.py 
+│   │   │   ├── warehouse_service.py  
 │   │   │   ├── inventory_repository.py
+│   │   │   ├── stock_movement_repository.py 
 │   │   │   ├── purchase_repository.py 
 │   │   │   ├── sale_repository.py 
 │   │   │   ├── batch_repository.py
 │   │   │   └── report_repository.py
 │   │   │
+│   │   ├── models/                             
+│   │   │   ├── __init__.py 
+│   │   │   ├── user.py 
+│   │   │   ├── product.py
+│   │   │   ├── category.py 
+│   │   │   ├── supplier.py
+│   │   │   ├── customer.py 
+│   │   │   ├── warehouse.py
+│   │   │   ├── batch.py  
+│   │   │   ├── inventory.py
+│   │   │   ├── stock_movement.py 
+│   │   │   ├── purchase.py 
+│   │   │   ├── purchase_item.py 
+│   │   │   ├── sale.py
+│   │   │   └── sale_item.py
+│   │   │
 │   │   └── models/                                 
 │   │       ├── __init__.py 
-│   │       ├── user.py
-│   │       ├── product.py 
-│   │       ├── category.py 
-│   │       ├── supplier.py 
-│   │       ├── customer.py
-│   │       ├── batch.py 
-│   │       ├── inventory.py 
-│   │       ├── purchase.py 
-│   │       ├── purchase_item.py
-│   │       ├── sale.py 
-│   │       └── sale_item.py
+│   │       ├── pagination.py 
+│   │       ├── dates.py
+│   │       ├── calculations.py 
+│   │       └── formatting.py
 │   │    
 │   ├── tests/
 │   │   ├── unit/
