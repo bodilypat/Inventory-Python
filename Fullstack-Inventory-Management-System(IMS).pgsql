@@ -413,7 +413,6 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │
 │   │   ├── utils/                                       
 │   │   │   ├── helpers.js                               # General reusable utility functions
-│   │   │   ├── constants.js                             # Application wide constants
 │   │   │   ├── validator.js                             # Custom validation function 
 │   │   │   ├── formatter.js                             # Formatting text, numbers, IDs 
 │   │   │   ├── date.js                                  # Date and time formatting utilities
@@ -431,7 +430,11 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │   ├── messages.js                              # Success and error messages 
 │   │   │   ├── status.js                                # Order, inventory, and user status values 
 │   │   │   ├── validation.js                            # Validation rules and limits 
-│   │   │   └── index.js                   
+│   │   │   └── index.js        
+│   │   │            
+│   │   ├── store/  
+│   │   │   ├── store.js 
+│   │   │   └── rootReducer.js 
 │   │   │      
 │   │   ├── App.jsx 
 │   │   ├── main.jsx                                    
