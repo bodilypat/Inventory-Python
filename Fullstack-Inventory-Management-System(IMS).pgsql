@@ -113,10 +113,10 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │   │   │   └── productsApi.js
 │   │   │  	│	├── store/
 │   │   │   │   │   └── productSlice.js
-│   │   │  	│	├── validation/
-│   │   │   │   │   └── productSchema.js
 │   │   │  	│	├── selectors/
 │   │   │   │   │   └── productsSelectors.js
+│   │   │  	│	├── validation/
+│   │   │   │   │   └── productSchema.js
 │   │   │  	│	├── utils/
 │   │   │  	│	│   ├── productHelpers.js 
 │   │   │  	│	│   ├── productFormatter.js 
@@ -314,10 +314,10 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │   │   │   └── warehousesSlice.js 
 │   │   │  	│	├── warehouseSelectors.js
 │   │   │   │   └── warehousesUtils.js
-│   │   │   ├── stockMovements/
+│   │   │   ├── stock-movements/
 │   │   │   │   ├── pages/
 │   │   │  	│	│   ├── StockMovements.jsx
-│   │   │  	│	│   ├── StockInpage.jsx 
+│   │   │  	│	│   ├── StockInPage.jsx 
 │   │   │  	│	│   ├── StockOutPage.jsx
 │   │   │   │   │   └── StockAdjustmentPage.jsx
 │   │   │   │   ├── components/
@@ -328,15 +328,27 @@ Fullstack-Inventory-Management-System(IMS)/
 │   │   │  	│	│   ├── StockIn.jsx
 │   │   │  	│	│   ├── StockOut.jsx
 │   │   │  	│	│   ├── StockAdjustment.jsx
-│   │   │   │   │   └── MovementTimeline.jsx
+│   │   │  	│	│   ├── MovementTimeline.jsx
+│   │   │  	│	│   ├── MovementTypeBadge.jsx 
+│   │   │   │   │   └── MovementStatusBadge.jsx
 │   │   │  	│	├── hooks/
-│   │   │   │   │   └── useStockMovements.js 
+│   │   │  	│	│   ├── useStockMovements.js 
+│   │   │  	│	│   ├── useStockMovement.js 
+│   │   │  	│	│   ├── useStockMovementFilters.js 
+│   │   │   │   │   └── useStockMovementForm.js 
 │   │   │  	│	├── services/
 │   │   │   │   │   └── stockMovementsApi.js 
 │   │   │  	│	├── store/
-│   │   │   │   │   └── stockMovemenstSlice.js
-│   │   │  	│	├── stockMovementsSelectors.js 
-│   │   │   │   └── stockMovementsUtilits.js 
+│   │   │   │   │   └── stockMovementsSlice.js
+│   │   │  	│	├── selectors/
+│   │   │   │   │   └── stockMovementsSelectors.js
+│   │   │  	│	├── validation/
+│   │   │   │   │   └── stockMovementSchema.js
+│   │   │  	│	├── utils/
+│   │   │   │   │   └── stockMovementsUtils.js
+│   │   │  	│	├── constants/
+│   │   │   │   │   └── stockMovementConstants.js
+│   │   │   │   └── index.js 
 │   │   │   ├── dashboard/
 │   │   │  	│	├── pages/
 │   │   │   │   │   └── Dashboard.jsx 
