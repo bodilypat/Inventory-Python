@@ -1,0 +1,607 @@
+Fullstack-Inventory-Management-System(IMS)/
+├── frontend/ (React.js • HTML • CSS) components -> pages -> hooks -> services -> routes -> utils -> App.jsx
+│   │
+│   ├── public/
+│   │   ├── favicon.ico
+│   │   ├── logo.png
+│   │   └── index.html
+│   ├── src/
+│   │   ├── assets/                                         
+│   │   │   ├── icons/                                 
+│   │   │   ├── images/                             
+│   │   │   ├── fonts/
+│   │   │   └── styles/  
+│   │   │       ├── global.css
+│   │   │       ├── variable.css
+│   │   │       ├── reset.css
+│   │   │       └── typography.css                        
+│   │   ├── components/                                     
+│   │   │   ├── ui/  
+│   │   │   │   ├── Button.jsx
+│   │   │   │   ├── Input.jsx 
+│   │   │   │   ├── Select.jsx 
+│   │   │   │   ├── Textarea.jsx 
+│   │   │   │   ├── Checkbox.jsx
+│   │   │   │   ├── Radio.jsx
+│   │   │   │   ├── Modal.jsx 
+│   │   │   │   ├── Table.jsx
+│   │   │   │   ├── Pagination.jsx 
+│   │   │   │   ├── Loading.jsx 
+│   │   │   │   ├── ErrorMessage.jsx  
+│   │   │   │   ├── SuccessMessage.jsx
+│   │   │   │   ├── Spinner.jsx 
+│   │   │   │   ├── Alert.jsx 
+│   │   │   │   └── index.js     
+│   │   │   └── layout/  
+│   │   │       ├── Navbar.jsx
+│   │   │       ├── Sidebar.jsx
+│   │   │       ├── Footer.jsx
+│   │   │       ├── Breadcrumb.jsx
+│   │   │       └── Layout.css
+│   │   │  
+│   │   ├── features/                                       
+│   │   │   ├── auth/ 
+│   │   │  	│	├── components/                          # Reusable authentication UI
+│   │   │  	│	│   ├── LoginForm.jsx        
+│   │   │  	│	│   ├── RegisterForm.jsx             
+│   │   │  	│	│   ├── ForgotPasswordForm.jsx
+│   │   │  	│	│   ├── ResetPasswordForm.jsx
+│   │   │  	│	│   ├── ChangePasswordForm.jsx
+│   │   │  	│	│   ├── PasswordInput.jsx 
+│   │   │   │   │   └── AuthCard.jsx
+│   │   │  	│	├── pages/                               # Route-level pages 
+│   │   │  	│	│   ├── Login.jsx
+│   │   │  	│	│   ├── Register.jsx
+│   │   │  	│	│   ├── ForgotPassword.jsx
+│   │   │  	│	│   ├── ResetPassword.jsx
+│   │   │  	│	│   ├── VerifyEmail.jsx 
+│   │   │   │   │   └── Unauthorized.jsx
+│   │   │  	│	├── hooks/                               # Authenticatio logic and custom hooks
+│   │   │  	│	│   ├── useAuth.js
+│   │   │  	│	│   ├── useLogin.js
+│   │   │  	│	│   ├── useRegister.js
+│   │   │  	│	│   ├── useLogout.js
+│   │   │   │   │   └── useCurrentUser.js
+│   │   │  	│	├── services/                            # API calls (login, logout, refresh token, profile)
+│   │   │   │   │   └── authApi.js
+│   │   │  	│	├── context/                             # Global authentication state
+│   │   │  	│	│   ├── AuthContext.jsx
+│   │   │  	│	│   ├── AuthProvider.jsx
+│   │   │   │   │   └── index.js
+│   │   │  	│	├── guards/                              
+│   │   │  	│	│   ├── ProtectedRoute.jsx 
+│   │   │  	│	│   ├── PublicRoute.jsx 
+│   │   │  	│	│   ├── RoleGuard.jsx 
+│   │   │   │   │   └── PermissionGuard.jsx 
+│   │   │  	│	├── utils/                               # Helper functions messages, storage keys
+│   │   │  	│	│   ├── authHelpers.js
+│   │   │  	│	│   ├── authValidators.js
+│   │   │   │   │   └── index.js
+│   │   │  	│	├── constants/                           # Roles permissions message storage keys
+│   │   │  	│	│   ├── roles.js
+│   │   │  	│	│   ├── permissions.js
+│   │   │  	│	│   ├── authMessages.js
+│   │   │  	│	│   ├── storageKeys.js
+│   │   │   │   │   └── index.js
+│   │   │  	│	├── styles/                              # Authentication-specific styling 
+│   │   │   │   │   └── auth.css
+│   │   │   │   └── index.js
+│   │   │   ├── dashboard/
+│   │   │  	│	├── pages/
+│   │   │   │   │   └── Dashboard.jsx 
+│   │   │  	│	├── components/
+│   │   │  	│	│   ├── StatsCards.jsx 
+│   │   │  	│	│   ├── SalesCart.jsx 
+│   │   │  	│	│   ├── PurchaseChart.jsx 
+│   │   │  	│	│   ├── InventoryChart.jsx 
+│   │   │  	│	│   ├── LowStockProducts.jsx 
+│   │   │  	│	│   ├── RecentSales.jsx 
+│   │   │  	│	│   ├── RecentPurchases.jsx 
+│   │   │  	│	│   ├── RecentStockMovement.jsx 
+│   │   │  	│	│   ├── TopSellingProducts.jsx
+│   │   │  	│	│   ├── RecentActivities.jsx 
+│   │   │  	│	│   ├── InventorySummary.jsx 
+│   │   │   │   │   └── DashboardFilters.jsx 
+│   │   │  	│	├── hooks/
+│   │   │   │   │   └── useDashboard.js 
+│   │   │  	│	├── services/
+│   │   │   │   │   └── dashboardApi.js
+│   │   │  	│	├── store/
+│   │   │   │   │   └── dashboardSlice.js
+│   │   │  	│	├── selectors/
+│   │   │   │   │   └── dashboardSelectors.js
+│   │   │  	│	├── utils/
+│   │   │   │   │   └── dashboardUtils.js
+│   │   │  	│	├── constants/
+│   │   │   │   │   └── dashboardConstants.js
+│   │   │  	│	├── validations/
+│   │   │   │   │   └── dashboardSchema.js
+│   │   │  	│	├── styles/
+│   │   │   │   │   └── dashboard.css  
+│   │   │   │   └── index.js 
+│   │   │   │       
+│   │   │   ├── products/ 
+│   │   │   │   ├── pages/
+│   │   │  	│	│   ├── ProductList.jsx
+│   │   │  	│	│   ├── AddProduct.jsx
+│   │   │  	│	│   ├── EditProduct.jsx
+│   │   │   │   │   └── ProductDetailspage.jsx
+│   │   │  	│	├── components/
+│   │   │  	│	│   ├── ProductForm.jsx
+│   │   │  	│	│   ├── ProductTable.jsx
+│   │   │  	│	│   ├── ProductSearch.jsx
+│   │   │  	│	│   ├── ProductFilter.jsx 
+│   │   │  	│	│   ├── ProductActions.jsx
+│   │   │  	│	│   ├── ProductCard.jsx 
+│   │   │  	│	│   ├── ProductStatusBadge.jsx 
+│   │   │  	│	│   ├── ProductStockBadge.jsx
+│   │   │  	│	│   ├── ProductPagination.jsx
+│   │   │  	│	│   ├── ProductEmptyState.jsx
+│   │   │   │   │   └── ProductDeleteModal.jsx
+│   │   │  	│	├── hooks/
+│   │   │  	│	│   ├── useProducts.js 
+│   │   │  	│	│   ├── useProduct.js 
+│   │   │  	│	│   ├── useProductForm.js 
+│   │   │   │   │   └── useProductFilters.js
+│   │   │  	│	├── services/
+│   │   │   │   │   └── productsApi.js
+│   │   │  	│	├── store/
+│   │   │   │   │   └── productSlice.js
+│   │   │  	│	├── selectors/
+│   │   │   │   │   └── productsSelectors.js
+│   │   │  	│	├── validation/
+│   │   │   │   │   └── productSchema.js
+│   │   │  	│	├── utils/
+│   │   │  	│	│   ├── productHelpers.js 
+│   │   │  	│	│   ├── productFormatter.js 
+│   │   │   │   │   └── productConstants.js
+│   │   │   │   └── index.js
+│   │   │   ├── categories/ 
+│   │   │   │   ├── pages/
+│   │   │  	│	│   ├── Categories.jsx
+│   │   │  	│	│   ├── AddCategory.jsx
+│   │   │  	│	│   ├── EditCategory.jsx
+│   │   │   │   │   └── CategoryDetailsPage.jsx
+│   │   │  	│	├── components/
+│   │   │  	│	│   ├── CategoryForm.jsx
+│   │   │  	│	│   ├── CategoryTable.jsx
+│   │   │  	│	│   ├── CategoryDetails.jsx
+│   │   │  	│	│   ├── CategoryFilters.jsx 
+│   │   │  	│	│   ├── CategoryStatus.jsx
+│   │   │   │   │   └── CategorySummary.jsx
+│   │   │  	│	├── hooks/
+│   │   │   │   │   └── useCategories.js
+│   │   │  	│	├── services/
+│   │   │   │   │   └── categoriesApi.js
+│   │   │  	│	├── store/
+│   │   │   │   │   └── categoriesSlice.js
+│   │   │  	│	├── validation/
+│   │   │   │   │   └── categoriesSchema.js
+│   │   │  	│	├── selectors/
+│   │   │   │   │   └── categoriesSelectors.js
+│   │   │  	│	├── utils/
+│   │   │   │   │   └── categoryUtils.js
+│   │   │  	│	├── constants/
+│   │   │   │   │   └── categoryConstants.js
+│   │   │   │   └── index.js
+│   │   │   │
+│   │   │   ├── warehouses/
+│   │   │   │   ├── pages/
+│   │   │  	│	│   ├── Warehouses.jsx
+│   │   │  	│	│   ├── AddWarehouse.jsx 
+│   │   │  	│	│   ├── EditWarehouse.jsx
+│   │   │   │   │   └── WarehouseDetailsPage.jsx
+│   │   │  	│	├── components/
+│   │   │  	│	│   ├── WarehouseForm.jsx 
+│   │   │  	│	│   ├── WarehouseTable.jsx
+│   │   │  	│	│   ├── WarehouseCard.jsx 
+│   │   │  	│	│   ├── WarehouseDetails.jsx 
+│   │   │  	│	│   ├── WarehouseStats.jsx 
+│   │   │   │   │   └── StockTransfer.jsx
+│   │   │  	│	├── hooks/
+│   │   │   │   │   └── useWarehouses.js 
+│   │   │  	│	├── services/
+│   │   │   │   │   └── warehousesApi.js 
+│   │   │  	│	├── store/
+│   │   │   │   │   └── warehousesSlice.js 
+│   │   │  	│	├── selectors/
+│   │   │   │   │   └── warehousesSelectors.js 
+│   │   │  	│	├── validation/
+│   │   │   │   │   └── warehousesSchema.js 
+│   │   │  	│	├── utils/
+│   │   │   │   │   └── warehousesUtils.js 
+│   │   │  	│	├── warehouseSelectors.js
+│   │   │  	│	├── constants/
+│   │   │   │   │   └── warehousesConstants.js 
+│   │   │   │   └── index.js
+│   │   │   │
+│   │   │   ├── suppliers/
+│   │   │   │   ├── pages/
+│   │   │  	│	│   ├── Suppliers.jsx 
+│   │   │  	│	│   ├── AddSupplier.jsx 
+│   │   │  	│	│   ├── EditSupplier.jsx
+│   │   │   │   │   └── SupplierDetailsPage.jsx 
+│   │   │  	│	├── components/
+│   │   │  	│	│   ├── SupplierForm.jsx 
+│   │   │  	│	│   ├── SupplierTable.jsx
+│   │   │  	│	│   ├── SupplierDetails.jsx 
+│   │   │  	│	│   ├── SupplierFilters.jsx 
+│   │   │  	│	│   ├── SupplierStatus.jsx  
+│   │   │   │   │   └── SupplierSummary.jsx
+│   │   │  	│	├── hooks/
+│   │   │   │   │   └── useSuppliers.js 
+│   │   │  	│	├── services/
+│   │   │   │   │   └── suppliersApi.js
+│   │   │  	│	├── store/
+│   │   │   │   │   └── suppliersSlice.js
+│   │   │  	│	├── selectors/
+│   │   │   │   │   └── suppliersSelectors.js
+│   │   │  	│	├── validation/
+│   │   │   │   │   └── supplierSchema.js
+│   │   │  	│	├── utils/
+│   │   │   │   │   └── suppliersUtils.js
+│   │   │  	│	├── constants/
+│   │   │   │   │   └── suppliersConstants.js
+│   │   │   │   └── index.js
+│   │   │   │
+│   │   │   ├── customers/
+│   │   │   │   ├── pages/
+│   │   │  	│	│   ├── Customers.jsx 
+│   │   │  	│	│   ├── AddCustomer.jsx 
+│   │   │  	│	│   ├── EditCustomer.jsx 
+│   │   │   │   │   └── CustomerDetailsPage.jsx 
+│   │   │  	│	├── components/
+│   │   │  	│	│   ├── CustomerForm.jsx 
+│   │   │  	│	│   ├── CustomerTable.jsx 
+│   │   │  	│	│   ├── CustomerDetails.jsx 
+│   │   │  	│	│   ├── CustomerFilters.jsx 
+│   │   │  	│	│   ├── CustomerStatus.jsx
+│   │   │   │   │   └── CustomerSummary.jsx
+│   │   │  	│	├── hooks/
+│   │   │   │   │   └── useCustomers.js 
+│   │   │  	│	├── services/
+│   │   │   │   │   └── customersApi.js
+│   │   │  	│	├── store/
+│   │   │   │   │   └── customerSlice.js
+│   │   │  	│	├── selectors/
+│   │   │   │   │   └── customerSelectors.js
+│   │   │  	│	├── validators/
+│   │   │   │   │   └── customerSchema.js
+│   │   │  	│	├── utils/
+│   │   │   │   │   └── customersUtils.js
+│   │   │   │   └── index.js
+│   │   │   │
+│   │   │   ├── inventory/
+│   │   │   │   ├── pages/
+│   │   │  	│	│   ├── Inventory.jsx 
+│   │   │  	│	│   ├── InventoryDetailsPage.jsx
+│   │   │   │   │   └── StockAdjustmentPage.jsx 
+│   │   │  	│	├── components/
+│   │   │  	│	│   ├── InventoryTable.jsx 
+│   │   │  	│	│   ├── InventoryCard.jsx 
+│   │   │  	│	│   ├── InventoryDetails.jsx 
+│   │   │  	│	│   ├── InventoryFilters.jsx 
+│   │   │  	│	│   ├── InventoryStats.jsx 
+│   │   │  	│	│   ├── StockAdjustment.jsx 
+│   │   │  	│	│   ├── LowStockAlert.jsx   
+│   │   │   │   │   └── StockStatus.jsx 
+│   │   │  	│	├── hooks/
+│   │   │   │   │   └── useInventory.js
+│   │   │  	│	├── services/
+│   │   │   │   │   └── inventoryApi.js
+│   │   │  	│	├── store/
+│   │   │   │   │   └── inventorySlice.js
+│   │   │  	│	├── selectors/
+│   │   │   │   │   └── inventorySelectors .js
+│   │   │  	│	├── utils/
+│   │   │   │   │   └── inventoryUtils.js
+│   │   │  	│	├── constants/
+│   │   │   │   │   └── inventoryConstants.js
+│   │   │   │   └── index.js 
+│   │   │   │
+│   │   │   ├── stock-movements/
+│   │   │   │   ├── pages/
+│   │   │  	│	│   ├── StockMovements.jsx
+│   │   │  	│	│   ├── StockInPage.jsx 
+│   │   │  	│	│   ├── StockOutPage.jsx
+│   │   │   │   │   └── StockAdjustmentPage.jsx
+│   │   │   │   ├── components/
+│   │   │  	│	│   ├── StockMovementTable.jsx
+│   │   │  	│	│   ├── StockMovementForm.jsx 
+│   │   │  	│	│   ├── StockMovementFilters.jsx
+│   │   │  	│	│   ├── StockMovementStats.jsx
+│   │   │  	│	│   ├── StockIn.jsx
+│   │   │  	│	│   ├── StockOut.jsx
+│   │   │  	│	│   ├── StockAdjustment.jsx
+│   │   │  	│	│   ├── MovementTimeline.jsx
+│   │   │  	│	│   ├── MovementTypeBadge.jsx 
+│   │   │   │   │   └── MovementStatusBadge.jsx
+│   │   │  	│	├── hooks/
+│   │   │  	│	│   ├── useStockMovements.js 
+│   │   │  	│	│   ├── useStockMovement.js 
+│   │   │  	│	│   ├── useStockMovementFilters.js 
+│   │   │   │   │   └── useStockMovementForm.js 
+│   │   │  	│	├── services/
+│   │   │   │   │   └── stockMovementsApi.js 
+│   │   │  	│	├── store/
+│   │   │   │   │   └── stockMovementsSlice.js
+│   │   │  	│	├── selectors/
+│   │   │   │   │   └── stockMovementsSelectors.js
+│   │   │  	│	├── validation/
+│   │   │   │   │   └── stockMovementSchema.js
+│   │   │  	│	├── utils/
+│   │   │   │   │   └── stockMovementsUtils.js
+│   │   │  	│	├── constants/
+│   │   │   │   │   └── stockMovementConstants.js
+│   │   │   │   └── index.js 
+│   │   │   ├── sales/
+│   │   │   │   ├── pages/
+│   │   │  	│	│   ├── Sales.jsx 
+│   │   │  	│	│   ├── AddSale.jsx 
+│   │   │  	│	│   ├── EditSale.jsx 
+│   │   │  	│	│   ├── SaleDetailPage.jsx 
+│   │   │   │   │   └── ProcessReturnPage.jsx
+│   │   │  	│	├── components/
+│   │   │  	│	│   ├── SalesForm.jsx 
+│   │   │  	│	│   ├── SalesTable.jsx  
+│   │   │  	│	│   ├── SaleDetails.jsx 
+│   │   │  	│	│   ├── SaleFilters.jsx 
+│   │   │  	│	│   ├── SalesStatus.jsx 
+│   │   │  	│	│   ├── SaleItems.jsx 
+│   │   │  	│	│   ├── ProcessReturn.jsx 
+│   │   │  	│	│   ├── SalesSummary.jsx
+│   │   │  	│	│   ├── SaleCustomer.jsx
+│   │   │  	│	│   ├── SalePayment.jsx
+│   │   │  	│	│   ├── SaleSearch.jsx
+│   │   │  	│	│   ├── SaleActions.jsx
+│   │   │  	│	│   ├── SaleEmptyState.jsx
+│   │   │  	│	│   ├── SaleDeleteModal.jsx
+│   │   │   │   │   └── SalePrint.jsx 
+│   │   │  	│	├── hooks/
+│   │   │  	│	│   ├── useSales.js 
+│   │   │  	│	│   ├── useSale.js 
+│   │   │  	│	│   ├── useSaleFilters.js 
+│   │   │  	│	│   ├── useSaleItems.js 
+│   │   │   │   │   └── useSaleReturn.js 
+│   │   │  	│	├── services/
+│   │   │   │   │   └── salesApi.js
+│   │   │  	│	├── store/
+│   │   │   │   │   └── salesSlice.js
+│   │   │  	│	├── salesSelectors.js 
+│   │   │   │   └── salesUtils.js 
+│   │   │   ├── purchases/
+│   │   │   │   ├── pages/
+│   │   │  	│	│   ├── Purchases.jsx                            # Purchase order listing page
+│   │   │  	│	│   ├── AddPurchase.jsx                          # Create ne purchase 
+│   │   │  	│	│   ├── EditPurchase.jsx                         # Edit an existing purchase 
+│   │   │  	│	│   ├── PurchaseDetails.jsx                      # Full purchase order details 
+│   │   │   │   │   └── ReceivePurchasePage.jsx                  # Receive ordered products  
+│   │   │  	│	├── components/                                
+│   │   │  	│	│   ├── PurchaseForm.jsx                         # Reusable create/edit from 
+│   │   │  	│	│   ├── PurchaseTable.jsx                        # Purchase order table 
+│   │   │  	│	│   ├── PurchaseDetils.jsx                       # Purchase Information/details
+│   │   │  	│	│   ├── PurchaseFilters.jsx                      # Search, status, supplier/date filters 
+│   │   │  	│	│   ├── PurchaseStatus.jsx                       # Status badge/display 
+│   │   │  	│	│   ├── ReceivePurchase.jsx                      # Receving form/component 
+│   │   │   │   │   └── PurchaseSummary.jsx                      # Subtotal, tax, discount total 
+│   │   │  	│	├── hooks/
+│   │   │   │   │   └── usePurchases.js                          # Reuseable purchase-management logic 
+│   │   │  	│	├── services/
+│   │   │   │   │   └── purchasesApi.js                          # Backend API requests 
+│   │   │  	│	├── store/ 
+│   │   │   │   │   └── purchasesSlice.js                        # Redux State management 
+│   │   │  	│	├── selectors/ 
+│   │   │   │   │   └── purchasesSelectors.js
+│   │   │  	│	├── validation/ 
+│   │   │   │   │   └── purchaseSchema.js
+│   │   │  	│	├── utils/ 
+│   │   │   │   │   └── purchasesUtils.js
+│   │   │  	│	├── constants/ 
+│   │   │   │   │   └── purchaseConstants.js 
+│   │   │   │   └── index.js                                    
+│   │   │   └── Reports/
+│   │   │  	 	├── pages/
+│   │   │   	│   ├── Reports.jsx 
+│   │   │   	│   ├── InventoryReport.jsx 
+│   │   │   	│   ├── SalesReports.jsx 
+│   │   │   	│   ├── PurchaseReport.jsx 
+│   │   │   	│   ├── StockMovementReports.jsx 
+│   │   │       │   └── PerformanceReports.jsx
+│   │   │  	 	├── components/
+│   │   │  		│   ├── ReportFilters.jsx 
+│   │   │   	│   ├── ReportHeader.jsx 
+│   │   │   	│   ├── ReportSummary.jsx
+│   │   │   	│   ├── InventoryReport.jsx
+│   │   │   	│   ├── SalesReport.jsx
+│   │   │   	│   ├── PurchaseReport.jsx 
+│   │   │   	│   ├── StockMovementReport.jsx 
+│   │   │   	│   ├── SupplierReport.jsx
+│   │   │   	│   ├── CustomerReport.jsx
+│   │   │   	│   ├── SalesChart.jsx 
+│   │   │   	│   ├── PurchaseChart.jsx  
+│   │   │   	│   ├── InventoryChart.jsx 
+│   │   │       │   └── ReportTable.jsx
+│   │   │  	 	├── hooks/
+│   │   │       │   └── useReports.js
+│   │   │  	 	├── services/
+│   │   │       │   └── reportApi.js
+│   │   │  	 	├── store/
+│   │   │       │   └── reportsSlice.js
+│   │   │  	 	├── reportsSelectors.js
+│   │   │       └── reportsUtils.js
+│   │   │
+│   │   ├── hooks/                                       
+│   │   │   ├── useFetch.js                              # Generic API request handing (loading, error, data)
+│   │   │   ├── usePagination.js                         # Pagination Logic reusable across tables
+│   │   │   ├── useDebounce.js                           # Debounce values for search inputs
+│   │   │   ├── useLocalStorage.js                       # Persist datain local state
+│   │   │   ├── useModal.js                              # Open/Close State for dialogs and Modal
+│   │   │   ├── useTheme.js                              # Theme switching (light/dark)
+│   │   │   └── index.js
+│   │   │
+│   │   ├── services/                                    
+│   │   │   ├── api.js                                   # Configure Axios (base URL, interceptors, auth token, error banding)
+│   │   │   └── ...
+│   │   │
+│   │   ├── routes/                                  
+│   │   │   ├── AppRoutes.jsx                            # Defines all application route 
+│   │   │   ├── PrivateRoute.jsx
+│   │   │   ├── PublicRoute.jsx                          # Prevents authenticated users from accessing pages like login 
+│   │   │   ├── RoleRoute.jsx                            # Restricts routes based on user roles (Admin, Manager, Staff)
+│   │   │   ├── routePaths.js                            # Stores all paths as constants
+│   │   │   └── index.js                                 # Re-exports route modules clearner imports
+│   │   │
+│   │   ├── utils/                                       
+│   │   │   ├── helpers.js                               # General reusable utility functions
+│   │   │   ├── validator.js                             # Custom validation function 
+│   │   │   ├── formatter.js                             # Formatting text, numbers, IDs 
+│   │   │   ├── date.js                                  # Date and time formatting utilities
+│   │   │   ├── currency.js                              # Currency calculations and formatting 
+│   │   │   ├── storage.js                               # LocalStorage and SessionStorage helpers       
+│   │   │   └── index.js                                 # Re-export utitity function
+│   │   │     
+│   │   ├── constants/                                         
+│   │   │   ├── api.js                                   # API endpoint timeout values
+│   │   │   ├── app.js                                   # Application name, version, page size 
+│   │   │   ├── auth.js                                  # Authentication-related constants 
+│   │   │   ├── routes.js                                # Route paths 
+│   │   │   ├── roles.js                                 # User roles and permissions 
+│   │   │   ├── inventory.js                             # Stock limits, movement types 
+│   │   │   ├── messages.js                              # Success and error messages 
+│   │   │   ├── status.js                                # Order, inventory, and user status values 
+│   │   │   ├── validation.js                            # Validation rules and limits 
+│   │   │   └── index.js        
+│   │   │            
+│   │   ├── store/  
+│   │   │   ├── store.js 
+│   │   │   └── rootReducer.js 
+│   │   │      
+│   │   ├── App.jsx 
+│   │   ├── main.jsx                                    
+│   │   └── index.css    
+│   │
+│   ├── package.json
+│   ├── vite.config.js
+│   ├── .env
+│   ├── .gitignore                        
+│   └── README.MD               
+│                            
+├── backend(Python) FastAPI(API Routes-> Validation / Schema ->Service Layer->Repository Layer->SQLAlchemy ORM)-> PostgreSQL -> Response -> React.js UI
+│   ├── app/
+│   │   ├── __init__.py 
+│   │   ├── main.py
+│   │   │
+│   │   ├── core/
+│   │   │   ├── __init__.py
+│   │   │   ├── config.py
+│   │   │   ├── database.py    
+│   │   │   ├── security.py 
+│   │   │   ├── exceptions.py 
+│   │   │   └── logging.py           
+│   │   │
+│   │   ├── api/   
+│   │   │   ├── __init__.py
+│   │   │   ├── deps.py                           
+│   │   │   └── routes/                  
+│   │   │       ├── __init__.py 
+│   │   │       ├── auth.py
+│   │   │       ├── users.py 
+│   │   │       ├── products.py
+│   │   │       ├── categories.py
+│   │   │       ├── suppliers.py 
+│   │   │       ├── customers.py 
+│   │   │       ├── warehouses.py
+│   │   │       ├── inventory.py
+│   │   │       ├── suppliers.py 
+│   │   │       ├── stock_movements.py 
+│   │   │       ├── purchases.py
+│   │   │       ├── sales.py 
+│   │   │       ├── batches.py 
+│   │   │       ├── expiry.py
+│   │   │       ├── dashboard.py 
+│   │   │       └── reports.py
+│   │   │
+│   │   ├── schemas/                             
+│   │   │   ├── __init__.py
+│   │   │   ├── common.py 
+│   │   │   ├── user.py 
+│   │   │   ├── product.py 
+│   │   │   ├── category.py 
+│   │   │   ├── supplier.py 
+│   │   │   ├── customer.py 
+│   │   │   ├── estrhouse.py 
+│   │   │   ├── batch.py  
+│   │   │   ├── inventory.py 
+│   │   │   ├── stock_movement.py
+│   │   │   ├── purchase.py 
+│   │   │   ├── purchase_item.py 
+│   │   │   ├── sale.py 
+│   │   │   └── sale_item.py                          
+│   │   │
+│   │   ├── services/          
+│   │   │   ├── __init__.py                    
+│   │   │   ├── auth_service.py
+│   │   │   ├── user_service.py
+│   │   │   ├── product_service.py 
+│   │   │   ├── category_service.py
+│   │   │   ├── supplier_service.py 
+│   │   │   ├── customer_service.py 
+│   │   │   ├── warehouse_service.py 
+│   │   │   ├── inventory_service.py 
+│   │   │   ├── stock_movement_service.py 
+│   │   │   ├── purchase_service.py 
+│   │   │   ├── sale_service.py 
+│   │   │   ├── batch_service.py 
+│   │   │   ├── expiry_service.py 
+│   │   │   ├── dashboard_service.py 
+│   │   │   └── report_service.py
+│   │   │
+│   │   ├── repositories/                             
+│   │   │   ├── __init__.py 
+│   │   │   ├── user_repository.py 
+│   │   │   ├── product_repository.py
+│   │   │   ├── category_repository.py 
+│   │   │   ├── supplier_repository.py
+│   │   │   ├── customer_repository.py 
+│   │   │   ├── warehouse_service.py  
+│   │   │   ├── inventory_repository.py
+│   │   │   ├── stock_movement_repository.py 
+│   │   │   ├── purchase_repository.py 
+│   │   │   ├── sale_repository.py 
+│   │   │   ├── batch_repository.py
+│   │   │   └── report_repository.py
+│   │   │
+│   │   ├── models/                             
+│   │   │   ├── __init__.py 
+│   │   │   ├── user.py 
+│   │   │   ├── product.py
+│   │   │   ├── category.py 
+│   │   │   ├── supplier.py
+│   │   │   ├── customer.py 
+│   │   │   ├── warehouse.py
+│   │   │   ├── batch.py  
+│   │   │   ├── inventory.py
+│   │   │   ├── stock_movement.py 
+│   │   │   ├── purchase.py 
+│   │   │   ├── purchase_item.py 
+│   │   │   ├── sale.py
+│   │   │   └── sale_item.py
+│   │   │
+│   │   └── models/                                 
+│   │       ├── __init__.py 
+│   │       ├── pagination.py 
+│   │       ├── dates.py
+│   │       ├── calculations.py 
+│   │       └── formatting.py
+│   │    
+│   ├── tests/
+│   │   ├── unit/
+│   │   ├── integration/
+│   │   └── api/
+│   ├── migrations/
+│   │   └── ...
+│   ├── requirements.txt 
+│   ├── .env 
+│   ├── .env.example 
+│   └── README.md 
+└── 
