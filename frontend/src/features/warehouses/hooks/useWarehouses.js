@@ -538,12 +538,19 @@ const useWarehouses = (initialOptions = {}) => {
     }, []);
 
     /* Selection */
-    const selectionWarehouse = useCallback(
+    const selectWarehouse = useCallback(
         (warehouse) => {
             setSelectedWarehouse(warehouse);
         },
         [] 
     );
+
+    const clearSelectedWarehouse = useCallback(() => {
+        setSelectedWarehouse(null);
+        setWarehouseStats(null);
+        setDetailsError(null);
+        setStatsError(null);
+    }, []);
 
     /* Error helpers */
     const clearError = useCallback(() => {
